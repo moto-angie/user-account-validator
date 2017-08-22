@@ -1,5 +1,6 @@
 require_relative "user_account_validator"
-
+require 'pry'
+begin
 users = [
   {
     email: "doc@d7miners.com",
@@ -35,5 +36,8 @@ users = [
     name: "Dopey"
   }
 ]
-
 users.map { |user| UserAccountValidator.new(user) }
+
+rescue StandardError => error
+  binding.pry
+end
